@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-fiddle.com/schemas/project.json",
+  "title": "API Fiddle Project",
+  "description": "An API design project within the API Fiddle platform containing one or more API specifications.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the project."
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the project.",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "description": {
+      "type": "string",
+      "description": "A detailed description of the project."
+    },
+    "workspaceId": {
+      "type": "string",
+      "description": "Identifier of the workspace this project belongs to."
+    },
+    "visibility": {
+      "type": "string",
+      "enum": ["private", "public", "shared"],
+      "description": "Visibility level of the project.",
+      "default": "private"
+    },
+    "specifications": {
+      "type": "array",
+      "description": "List of specifications associated with this project.",
+      "items": {
+        "$ref": "api-fiddle-specification-schema.json"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "description": "Tags for categorizing the project.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the project was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the project was last updated."
+    }
+  },
+  "required": ["id", "name"],
+  "additionalProperties": false
+}

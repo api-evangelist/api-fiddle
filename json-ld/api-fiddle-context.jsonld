@@ -1,0 +1,43 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "apifiddle": "https://api-fiddle.com/schemas/",
+    "Project": "apifiddle:Project",
+    "Specification": "apifiddle:Specification",
+    "Workspace": "apifiddle:Workspace",
+    "projectId": {
+      "@id": "apifiddle:projectId",
+      "@type": "@id"
+    },
+    "workspaceId": {
+      "@id": "apifiddle:workspaceId",
+      "@type": "@id"
+    },
+    "specificationId": {
+      "@id": "apifiddle:specificationId",
+      "@type": "@id"
+    },
+    "name": "schema:name",
+    "description": "schema:description",
+    "visibility": "apifiddle:visibility",
+    "format": "schema:encodingFormat",
+    "content": "schema:text",
+    "version": "schema:version",
+    "status": "apifiddle:status",
+    "ownerId": {
+      "@id": "apifiddle:ownerId",
+      "@type": "@id"
+    },
+    "members": "apifiddle:members",
+    "role": "apifiddle:role",
+    "tags": "schema:keywords",
+    "createdAt": {
+      "@id": "schema:dateCreated",
+      "@type": "schema:DateTime"
+    },
+    "updatedAt": {
+      "@id": "schema:dateModified",
+      "@type": "schema:DateTime"
+    }
+  }
+}

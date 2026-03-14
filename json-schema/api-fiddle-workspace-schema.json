@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-fiddle.com/schemas/workspace.json",
+  "title": "API Fiddle Workspace",
+  "description": "A workspace within the API Fiddle platform used to organize and group related API design projects.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the workspace."
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the workspace.",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "description": {
+      "type": "string",
+      "description": "A detailed description of the workspace."
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "Identifier of the user who owns the workspace."
+    },
+    "members": {
+      "type": "array",
+      "description": "List of members with access to the workspace.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "Identifier of the member."
+          },
+          "role": {
+            "type": "string",
+            "enum": ["viewer", "editor", "admin", "owner"],
+            "description": "Role of the member within the workspace."
+          },
+          "joinedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp when the member joined the workspace."
+          }
+        },
+        "required": ["userId", "role"]
+      }
+    },
+    "projects": {
+      "type": "array",
+      "description": "List of project identifiers within this workspace.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the workspace was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the workspace was last updated."
+    }
+  },
+  "required": ["id", "name"],
+  "additionalProperties": false
+}
