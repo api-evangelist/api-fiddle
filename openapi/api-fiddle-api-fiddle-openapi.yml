@@ -628,13 +628,13 @@ components:
 security:
   - bearerAuth: []
 tags:
+  - name: Export
+    description: Export projects and specifications.
   - name: Projects
     description: Manage API design projects.
+  - name: Sharing
+    description: Share projects with other users.
   - name: Specifications
     description: Manage API specifications within projects.
   - name: Workspaces
     description: Organize projects into workspaces.
-  - name: Sharing
-    description: Share projects with other users.
-  - name: Export
-    description: Export projects and specifications.

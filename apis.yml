@@ -4,8 +4,7 @@ url: >-
 apis:
   - aid: api-fiddle:api-fiddle
     name: API-Fiddle
-    tags:
-      - API
+    tags: []
     humanURL: https://api-fiddle.com/
     properties:
       - url: https://api-fiddle.com/
@@ -27,8 +26,8 @@ apis:
 name: API-Fiddle
 tags:
   - Documentation
-  - Playground
   - Platform
+  - Playground
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
