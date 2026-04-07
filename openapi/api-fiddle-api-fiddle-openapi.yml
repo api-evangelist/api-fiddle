@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: API Fiddle API
+  title: API-Fiddle API Fiddle API
   description: >-
     The API Fiddle API provides programmatic access to the API Fiddle design
     platform, enabling management of projects, specifications, workspaces,
@@ -18,7 +18,7 @@ paths:
   /projects:
     get:
       operationId: listProjects
-      summary: List projects
+      summary: API-Fiddle List projects
       description: Retrieves a paginated list of projects accessible to the authenticated user.
       tags:
         - Projects
@@ -55,7 +55,7 @@ paths:
                     type: integer
     post:
       operationId: createProject
-      summary: Create a project
+      summary: API-Fiddle Create a project
       description: Creates a new API design project.
       tags:
         - Projects
@@ -75,7 +75,7 @@ paths:
   /projects/{projectId}:
     get:
       operationId: getProject
-      summary: Get a project
+      summary: API-Fiddle Get a project
       description: Retrieves a single project by its identifier.
       tags:
         - Projects
@@ -92,7 +92,7 @@ paths:
           description: Project not found.
     put:
       operationId: updateProject
-      summary: Update a project
+      summary: API-Fiddle Update a project
       description: Updates an existing project.
       tags:
         - Projects
@@ -113,7 +113,7 @@ paths:
                 $ref: '#/components/schemas/Project'
     delete:
       operationId: deleteProject
-      summary: Delete a project
+      summary: API-Fiddle Delete a project
       description: Deletes a project and all associated specifications.
       tags:
         - Projects
@@ -125,7 +125,7 @@ paths:
   /projects/{projectId}/specifications:
     get:
       operationId: listSpecifications
-      summary: List specifications
+      summary: API-Fiddle List specifications
       description: Retrieves all specifications belonging to a project.
       tags:
         - Specifications
@@ -145,7 +145,7 @@ paths:
                       $ref: '#/components/schemas/Specification'
     post:
       operationId: createSpecification
-      summary: Create a specification
+      summary: API-Fiddle Create a specification
       description: Creates a new API specification within a project.
       tags:
         - Specifications
@@ -167,7 +167,7 @@ paths:
   /projects/{projectId}/specifications/{specificationId}:
     get:
       operationId: getSpecification
-      summary: Get a specification
+      summary: API-Fiddle Get a specification
       description: Retrieves a single specification by its identifier.
       tags:
         - Specifications
@@ -183,7 +183,7 @@ paths:
                 $ref: '#/components/schemas/Specification'
     put:
       operationId: updateSpecification
-      summary: Update a specification
+      summary: API-Fiddle Update a specification
       description: Updates an existing specification.
       tags:
         - Specifications
@@ -205,7 +205,7 @@ paths:
                 $ref: '#/components/schemas/Specification'
     delete:
       operationId: deleteSpecification
-      summary: Delete a specification
+      summary: API-Fiddle Delete a specification
       description: Deletes a specification from a project.
       tags:
         - Specifications
@@ -218,7 +218,7 @@ paths:
   /workspaces:
     get:
       operationId: listWorkspaces
-      summary: List workspaces
+      summary: API-Fiddle List workspaces
       description: Retrieves all workspaces accessible to the authenticated user.
       tags:
         - Workspaces
@@ -236,7 +236,7 @@ paths:
                       $ref: '#/components/schemas/Workspace'
     post:
       operationId: createWorkspace
-      summary: Create a workspace
+      summary: API-Fiddle Create a workspace
       description: Creates a new workspace for organizing projects.
       tags:
         - Workspaces
@@ -256,7 +256,7 @@ paths:
   /workspaces/{workspaceId}:
     get:
       operationId: getWorkspace
-      summary: Get a workspace
+      summary: API-Fiddle Get a workspace
       description: Retrieves a single workspace by its identifier.
       tags:
         - Workspaces
@@ -271,7 +271,7 @@ paths:
                 $ref: '#/components/schemas/Workspace'
     put:
       operationId: updateWorkspace
-      summary: Update a workspace
+      summary: API-Fiddle Update a workspace
       description: Updates an existing workspace.
       tags:
         - Workspaces
@@ -292,7 +292,7 @@ paths:
                 $ref: '#/components/schemas/Workspace'
     delete:
       operationId: deleteWorkspace
-      summary: Delete a workspace
+      summary: API-Fiddle Delete a workspace
       description: Deletes a workspace.
       tags:
         - Workspaces
@@ -304,7 +304,7 @@ paths:
   /projects/{projectId}/sharing:
     get:
       operationId: listSharing
-      summary: List sharing settings
+      summary: API-Fiddle List sharing settings
       description: Retrieves the sharing configuration for a project.
       tags:
         - Sharing
@@ -324,7 +324,7 @@ paths:
                       $ref: '#/components/schemas/SharingEntry'
     post:
       operationId: shareProject
-      summary: Share a project
+      summary: API-Fiddle Share a project
       description: Shares a project with another user or generates a public link.
       tags:
         - Sharing
@@ -346,7 +346,7 @@ paths:
   /projects/{projectId}/sharing/{sharingId}:
     delete:
       operationId: removeSharing
-      summary: Remove sharing
+      summary: API-Fiddle Remove sharing
       description: Revokes sharing access for a specific entry.
       tags:
         - Sharing
@@ -364,7 +364,7 @@ paths:
   /projects/{projectId}/export:
     post:
       operationId: exportProject
-      summary: Export a project
+      summary: API-Fiddle Export a project
       description: >-
         Exports a project or specification in the requested format such as
         OpenAPI YAML, OpenAPI JSON, or other supported formats.
