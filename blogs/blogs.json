@@ -1,0 +1,13 @@
+{
+  "repo": "api-fiddle",
+  "feeds": [
+    {
+      "source": "https://blog.api-fiddle.com/",
+      "feed_url": "https://blog.api-fiddle.com/rss.xml",
+      "saved": 10,
+      "title": "API-Fiddle Blog"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:22:10Z"
+}
