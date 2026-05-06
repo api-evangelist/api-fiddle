@@ -1,0 +1,631 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API-Fiddle API Fiddle API
+  description: The API Fiddle API provides programmatic access to the API Fiddle design platform, enabling management of projects,
+    specifications, workspaces, sharing, and export capabilities. It allows developers to automate API design workflows, collaborate
+    on OpenAPI specifications, and integrate API Fiddle into their development pipelines.
+  tags:
+  - Api
+  - Fiddle
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: api-fiddle
+    baseUri: https://api.api-fiddle.com/v1
+    description: API-Fiddle API Fiddle API HTTP API.
+    authentication:
+      type: bearer
+      token: '{{API_FIDDLE_TOKEN}}'
+    resources:
+    - name: projects
+      path: /projects
+      operations:
+      - name: listprojects
+        method: GET
+        description: API-Fiddle List projects
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Maximum number of projects to return.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of projects to skip for pagination.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createproject
+        method: POST
+        description: API-Fiddle Create a project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectid
+      path: /projects/{projectId}
+      operations:
+      - name: getproject
+        method: GET
+        description: API-Fiddle Get a project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateproject
+        method: PUT
+        description: API-Fiddle Update a project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleteproject
+        method: DELETE
+        description: API-Fiddle Delete a project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectid-specifications
+      path: /projects/{projectId}/specifications
+      operations:
+      - name: listspecifications
+        method: GET
+        description: API-Fiddle List specifications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createspecification
+        method: POST
+        description: API-Fiddle Create a specification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectid-specifications-specificationi
+      path: /projects/{projectId}/specifications/{specificationId}
+      operations:
+      - name: getspecification
+        method: GET
+        description: API-Fiddle Get a specification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatespecification
+        method: PUT
+        description: API-Fiddle Update a specification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletespecification
+        method: DELETE
+        description: API-Fiddle Delete a specification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workspaces
+      path: /workspaces
+      operations:
+      - name: listworkspaces
+        method: GET
+        description: API-Fiddle List workspaces
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createworkspace
+        method: POST
+        description: API-Fiddle Create a workspace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workspaces-workspaceid
+      path: /workspaces/{workspaceId}
+      operations:
+      - name: getworkspace
+        method: GET
+        description: API-Fiddle Get a workspace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateworkspace
+        method: PUT
+        description: API-Fiddle Update a workspace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleteworkspace
+        method: DELETE
+        description: API-Fiddle Delete a workspace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectid-sharing
+      path: /projects/{projectId}/sharing
+      operations:
+      - name: listsharing
+        method: GET
+        description: API-Fiddle List sharing settings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: shareproject
+        method: POST
+        description: API-Fiddle Share a project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectid-sharing-sharingid
+      path: /projects/{projectId}/sharing/{sharingId}
+      operations:
+      - name: removesharing
+        method: DELETE
+        description: API-Fiddle Remove sharing
+        inputParameters:
+        - name: sharingId
+          in: path
+          type: string
+          required: true
+          description: The unique identifier of the sharing entry.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectid-export
+      path: /projects/{projectId}/export
+      operations:
+      - name: exportproject
+        method: POST
+        description: API-Fiddle Export a project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: api-fiddle-rest
+    description: REST adapter for API-Fiddle API Fiddle API.
+    resources:
+    - path: /projects
+      name: listprojects
+      operations:
+      - method: GET
+        name: listprojects
+        description: API-Fiddle List projects
+        call: api-fiddle.listprojects
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects
+      name: createproject
+      operations:
+      - method: POST
+        name: createproject
+        description: API-Fiddle Create a project
+        call: api-fiddle.createproject
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}
+      name: getproject
+      operations:
+      - method: GET
+        name: getproject
+        description: API-Fiddle Get a project
+        call: api-fiddle.getproject
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}
+      name: updateproject
+      operations:
+      - method: PUT
+        name: updateproject
+        description: API-Fiddle Update a project
+        call: api-fiddle.updateproject
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}
+      name: deleteproject
+      operations:
+      - method: DELETE
+        name: deleteproject
+        description: API-Fiddle Delete a project
+        call: api-fiddle.deleteproject
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/specifications
+      name: listspecifications
+      operations:
+      - method: GET
+        name: listspecifications
+        description: API-Fiddle List specifications
+        call: api-fiddle.listspecifications
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/specifications
+      name: createspecification
+      operations:
+      - method: POST
+        name: createspecification
+        description: API-Fiddle Create a specification
+        call: api-fiddle.createspecification
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/specifications/{specificationId}
+      name: getspecification
+      operations:
+      - method: GET
+        name: getspecification
+        description: API-Fiddle Get a specification
+        call: api-fiddle.getspecification
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/specifications/{specificationId}
+      name: updatespecification
+      operations:
+      - method: PUT
+        name: updatespecification
+        description: API-Fiddle Update a specification
+        call: api-fiddle.updatespecification
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/specifications/{specificationId}
+      name: deletespecification
+      operations:
+      - method: DELETE
+        name: deletespecification
+        description: API-Fiddle Delete a specification
+        call: api-fiddle.deletespecification
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /workspaces
+      name: listworkspaces
+      operations:
+      - method: GET
+        name: listworkspaces
+        description: API-Fiddle List workspaces
+        call: api-fiddle.listworkspaces
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /workspaces
+      name: createworkspace
+      operations:
+      - method: POST
+        name: createworkspace
+        description: API-Fiddle Create a workspace
+        call: api-fiddle.createworkspace
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /workspaces/{workspaceId}
+      name: getworkspace
+      operations:
+      - method: GET
+        name: getworkspace
+        description: API-Fiddle Get a workspace
+        call: api-fiddle.getworkspace
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /workspaces/{workspaceId}
+      name: updateworkspace
+      operations:
+      - method: PUT
+        name: updateworkspace
+        description: API-Fiddle Update a workspace
+        call: api-fiddle.updateworkspace
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /workspaces/{workspaceId}
+      name: deleteworkspace
+      operations:
+      - method: DELETE
+        name: deleteworkspace
+        description: API-Fiddle Delete a workspace
+        call: api-fiddle.deleteworkspace
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/sharing
+      name: listsharing
+      operations:
+      - method: GET
+        name: listsharing
+        description: API-Fiddle List sharing settings
+        call: api-fiddle.listsharing
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/sharing
+      name: shareproject
+      operations:
+      - method: POST
+        name: shareproject
+        description: API-Fiddle Share a project
+        call: api-fiddle.shareproject
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/sharing/{sharingId}
+      name: removesharing
+      operations:
+      - method: DELETE
+        name: removesharing
+        description: API-Fiddle Remove sharing
+        call: api-fiddle.removesharing
+        with:
+          sharingId: rest.sharingId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/export
+      name: exportproject
+      operations:
+      - method: POST
+        name: exportproject
+        description: API-Fiddle Export a project
+        call: api-fiddle.exportproject
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: api-fiddle-mcp
+    transport: http
+    description: MCP adapter for API-Fiddle API Fiddle API for AI agent use.
+    tools:
+    - name: listprojects
+      description: API-Fiddle List projects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: api-fiddle.listprojects
+      with:
+        limit: tools.limit
+        offset: tools.offset
+      inputParameters:
+      - name: limit
+        type: integer
+        description: Maximum number of projects to return.
+      - name: offset
+        type: integer
+        description: Number of projects to skip for pagination.
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createproject
+      description: API-Fiddle Create a project
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: api-fiddle.createproject
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getproject
+      description: API-Fiddle Get a project
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: api-fiddle.getproject
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updateproject
+      description: API-Fiddle Update a project
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: api-fiddle.updateproject
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleteproject
+      description: API-Fiddle Delete a project
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: api-fiddle.deleteproject
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listspecifications
+      description: API-Fiddle List specifications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: api-fiddle.listspecifications
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createspecification
+      description: API-Fiddle Create a specification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: api-fiddle.createspecification
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getspecification
+      description: API-Fiddle Get a specification
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: api-fiddle.getspecification
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatespecification
+      description: API-Fiddle Update a specification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: api-fiddle.updatespecification
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletespecification
+      description: API-Fiddle Delete a specification
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: api-fiddle.deletespecification
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listworkspaces
+      description: API-Fiddle List workspaces
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: api-fiddle.listworkspaces
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createworkspace
+      description: API-Fiddle Create a workspace
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: api-fiddle.createworkspace
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getworkspace
+      description: API-Fiddle Get a workspace
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: api-fiddle.getworkspace
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updateworkspace
+      description: API-Fiddle Update a workspace
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: api-fiddle.updateworkspace
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleteworkspace
+      description: API-Fiddle Delete a workspace
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: api-fiddle.deleteworkspace
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listsharing
+      description: API-Fiddle List sharing settings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: api-fiddle.listsharing
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: shareproject
+      description: API-Fiddle Share a project
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: api-fiddle.shareproject
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: removesharing
+      description: API-Fiddle Remove sharing
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: api-fiddle.removesharing
+      with:
+        sharingId: tools.sharingId
+      inputParameters:
+      - name: sharingId
+        type: string
+        description: The unique identifier of the sharing entry.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: exportproject
+      description: API-Fiddle Export a project
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: api-fiddle.exportproject
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    API_FIDDLE_TOKEN: API_FIDDLE_TOKEN
