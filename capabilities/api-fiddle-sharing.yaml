@@ -1,0 +1,147 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API-Fiddle API Fiddle API — Sharing
+  description: 'API-Fiddle API Fiddle API — Sharing. 3 operations. Lead operation: API-Fiddle List sharing settings. Self-contained
+    Naftiko capability covering one Api Fiddle business surface.'
+  tags:
+  - Api Fiddle
+  - Sharing
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    API_FIDDLE_API_KEY: API_FIDDLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: api-fiddle-sharing
+    baseUri: https://api.api-fiddle.com/v1
+    description: API-Fiddle API Fiddle API — Sharing business capability. Self-contained, no shared references.
+    resources:
+    - name: projects-projectId-sharing
+      path: /projects/{projectId}/sharing
+      operations:
+      - name: listsharing
+        method: GET
+        description: API-Fiddle List sharing settings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: shareproject
+        method: POST
+        description: API-Fiddle Share a project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: projects-projectId-sharing-sharingId
+      path: /projects/{projectId}/sharing/{sharingId}
+      operations:
+      - name: removesharing
+        method: DELETE
+        description: API-Fiddle Remove sharing
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sharingId
+          in: path
+          type: string
+          description: The unique identifier of the sharing entry.
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.API_FIDDLE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: api-fiddle-sharing-rest
+    port: 8080
+    description: REST adapter for API-Fiddle API Fiddle API — Sharing. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/projects/{projectid}/sharing
+      name: projects-projectid-sharing
+      description: REST surface for projects-projectId-sharing.
+      operations:
+      - method: GET
+        name: listsharing
+        description: API-Fiddle List sharing settings
+        call: api-fiddle-sharing.listsharing
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: shareproject
+        description: API-Fiddle Share a project
+        call: api-fiddle-sharing.shareproject
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{projectid}/sharing/{sharingid}
+      name: projects-projectid-sharing-sharingid
+      description: REST surface for projects-projectId-sharing-sharingId.
+      operations:
+      - method: DELETE
+        name: removesharing
+        description: API-Fiddle Remove sharing
+        call: api-fiddle-sharing.removesharing
+        with:
+          sharingId: rest.sharingId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: api-fiddle-sharing-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API-Fiddle API Fiddle API — Sharing. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: api-fiddle-list-sharing-settings
+      description: API-Fiddle List sharing settings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: api-fiddle-sharing.listsharing
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: api-fiddle-share-project
+      description: API-Fiddle Share a project
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: api-fiddle-sharing.shareproject
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: api-fiddle-remove-sharing
+      description: API-Fiddle Remove sharing
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: api-fiddle-sharing.removesharing
+      with:
+        sharingId: tools.sharingId
+      outputParameters:
+      - type: object
+        mapping: $.
