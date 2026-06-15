@@ -1,0 +1,455 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API-Fiddle API Fiddle API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "API-Fiddle List projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.api-fiddle.com/v1/projects",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of projects to return."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of projects to skip for pagination."
+              }
+            ]
+          },
+          "docs": "Retrieves a paginated list of projects accessible to the authenticated user."
+        },
+        {
+          "info": {
+            "name": "API-Fiddle Create a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.api-fiddle.com/v1/projects",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new API design project."
+        },
+        {
+          "info": {
+            "name": "API-Fiddle Get a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.api-fiddle.com/v1/projects/:projectId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the project."
+              }
+            ]
+          },
+          "docs": "Retrieves a single project by its identifier."
+        },
+        {
+          "info": {
+            "name": "API-Fiddle Update a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.api-fiddle.com/v1/projects/:projectId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the project."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing project."
+        },
+        {
+          "info": {
+            "name": "API-Fiddle Delete a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.api-fiddle.com/v1/projects/:projectId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the project."
+              }
+            ]
+          },
+          "docs": "Deletes a project and all associated specifications."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Specifications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "API-Fiddle List specifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.api-fiddle.com/v1/projects/:projectId/specifications",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the project."
+              }
+            ]
+          },
+          "docs": "Retrieves all specifications belonging to a project."
+        },
+        {
+          "info": {
+            "name": "API-Fiddle Create a specification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.api-fiddle.com/v1/projects/:projectId/specifications",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the project."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new API specification within a project."
+        },
+        {
+          "info": {
+            "name": "API-Fiddle Get a specification",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.api-fiddle.com/v1/projects/:projectId/specifications/:specificationId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the project."
+              },
+              {
+                "name": "specificationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the specification."
+              }
+            ]
+          },
+          "docs": "Retrieves a single specification by its identifier."
+        },
+        {
+          "info": {
+            "name": "API-Fiddle Update a specification",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.api-fiddle.com/v1/projects/:projectId/specifications/:specificationId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the project."
+              },
+              {
+                "name": "specificationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the specification."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing specification."
+        },
+        {
+          "info": {
+            "name": "API-Fiddle Delete a specification",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.api-fiddle.com/v1/projects/:projectId/specifications/:specificationId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the project."
+              },
+              {
+                "name": "specificationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the specification."
+              }
+            ]
+          },
+          "docs": "Deletes a specification from a project."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Workspaces",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "API-Fiddle List workspaces",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.api-fiddle.com/v1/workspaces"
+          },
+          "docs": "Retrieves all workspaces accessible to the authenticated user."
+        },
+        {
+          "info": {
+            "name": "API-Fiddle Create a workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.api-fiddle.com/v1/workspaces",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new workspace for organizing projects."
+        },
+        {
+          "info": {
+            "name": "API-Fiddle Get a workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.api-fiddle.com/v1/workspaces/:workspaceId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the workspace."
+              }
+            ]
+          },
+          "docs": "Retrieves a single workspace by its identifier."
+        },
+        {
+          "info": {
+            "name": "API-Fiddle Update a workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.api-fiddle.com/v1/workspaces/:workspaceId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the workspace."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing workspace."
+        },
+        {
+          "info": {
+            "name": "API-Fiddle Delete a workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.api-fiddle.com/v1/workspaces/:workspaceId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the workspace."
+              }
+            ]
+          },
+          "docs": "Deletes a workspace."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sharing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "API-Fiddle List sharing settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.api-fiddle.com/v1/projects/:projectId/sharing",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the project."
+              }
+            ]
+          },
+          "docs": "Retrieves the sharing configuration for a project."
+        },
+        {
+          "info": {
+            "name": "API-Fiddle Share a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.api-fiddle.com/v1/projects/:projectId/sharing",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the project."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Shares a project with another user or generates a public link."
+        },
+        {
+          "info": {
+            "name": "API-Fiddle Remove sharing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.api-fiddle.com/v1/projects/:projectId/sharing/:sharingId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the project."
+              },
+              {
+                "name": "sharingId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the sharing entry."
+              }
+            ]
+          },
+          "docs": "Revokes sharing access for a specific entry."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Export",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "API-Fiddle Export a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.api-fiddle.com/v1/projects/:projectId/export",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the project."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Exports a project or specification in the requested format such as OpenAPI YAML, OpenAPI JSON, or other supported formats."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
