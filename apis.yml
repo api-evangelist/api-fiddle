@@ -95,7 +95,7 @@ common:
         description: >-
           Exports standard OpenAPI 3.x specifications compatible with the full OpenAPI tooling ecosystem including
           generators, validators, and documentation tools.
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://api-fiddle.com/llms.txt
 maintainers:
   - FN: Kin Lane
