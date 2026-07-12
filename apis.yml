@@ -45,6 +45,10 @@ apis:
       - type: JSONLD
         url: json-ld/api-fiddle-context.jsonld
 common:
+  - type: DomainSecurity
+    url: security/api-fiddle-domain-security.yml
+  - type: Authentication
+    url: authentication/api-fiddle-authentication.yml
   - type: Website
     url: https://api-fiddle.com/
   - type: Blog
