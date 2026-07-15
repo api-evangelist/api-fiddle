@@ -45,6 +45,8 @@ apis:
       - type: JSONLD
         url: json-ld/api-fiddle-context.jsonld
 common:
+  - type: AgenticAccess
+    url: agentic-access/api-fiddle-agentic-access.yml
   - type: DomainSecurity
     url: security/api-fiddle-domain-security.yml
   - type: Authentication
