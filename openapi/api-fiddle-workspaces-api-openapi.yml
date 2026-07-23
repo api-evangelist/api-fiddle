@@ -1,0 +1,150 @@
+openapi: 3.1.0
+info:
+  title: API-Fiddle API Fiddle Export Workspaces API
+  description: The API Fiddle API provides programmatic access to the API Fiddle design platform, enabling management of projects, specifications, workspaces, sharing, and export capabilities. It allows developers to automate API design workflows, collaborate on OpenAPI specifications, and integrate API Fiddle into their development pipelines.
+  version: 1.0.0
+  contact:
+    name: API Fiddle
+    url: https://api-fiddle.com/
+servers:
+- url: https://api.api-fiddle.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Workspaces
+  description: Organize projects into workspaces.
+paths:
+  /workspaces:
+    get:
+      operationId: listWorkspaces
+      summary: API-Fiddle List workspaces
+      description: Retrieves all workspaces accessible to the authenticated user.
+      tags:
+      - Workspaces
+      responses:
+        '200':
+          description: A list of workspaces.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Workspace'
+    post:
+      operationId: createWorkspace
+      summary: API-Fiddle Create a workspace
+      description: Creates a new workspace for organizing projects.
+      tags:
+      - Workspaces
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkspaceInput'
+      responses:
+        '201':
+          description: The newly created workspace.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workspace'
+  /workspaces/{workspaceId}:
+    get:
+      operationId: getWorkspace
+      summary: API-Fiddle Get a workspace
+      description: Retrieves a single workspace by its identifier.
+      tags:
+      - Workspaces
+      parameters:
+      - $ref: '#/components/parameters/workspaceId'
+      responses:
+        '200':
+          description: The requested workspace.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workspace'
+    put:
+      operationId: updateWorkspace
+      summary: API-Fiddle Update a workspace
+      description: Updates an existing workspace.
+      tags:
+      - Workspaces
+      parameters:
+      - $ref: '#/components/parameters/workspaceId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkspaceInput'
+      responses:
+        '200':
+          description: The updated workspace.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workspace'
+    delete:
+      operationId: deleteWorkspace
+      summary: API-Fiddle Delete a workspace
+      description: Deletes a workspace.
+      tags:
+      - Workspaces
+      parameters:
+      - $ref: '#/components/parameters/workspaceId'
+      responses:
+        '204':
+          description: Workspace deleted successfully.
+components:
+  parameters:
+    workspaceId:
+      name: workspaceId
+      in: path
+      required: true
+      description: The unique identifier of the workspace.
+      schema:
+        type: string
+  schemas:
+    Workspace:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the workspace.
+        name:
+          type: string
+          description: Name of the workspace.
+        description:
+          type: string
+          description: Description of the workspace.
+        ownerId:
+          type: string
+          description: Identifier of the workspace owner.
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    WorkspaceInput:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the workspace.
+        description:
+          type: string
+          description: Description of the workspace.
+      required:
+      - name
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,77 @@
+openapi: 3.1.0
+info:
+  title: API-Fiddle API Fiddle Export API
+  description: The API Fiddle API provides programmatic access to the API Fiddle design platform, enabling management of projects, specifications, workspaces, sharing, and export capabilities. It allows developers to automate API design workflows, collaborate on OpenAPI specifications, and integrate API Fiddle into their development pipelines.
+  version: 1.0.0
+  contact:
+    name: API Fiddle
+    url: https://api-fiddle.com/
+servers:
+- url: https://api.api-fiddle.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Export
+  description: Export projects and specifications.
+paths:
+  /projects/{projectId}/export:
+    post:
+      operationId: exportProject
+      summary: API-Fiddle Export a project
+      description: Exports a project or specification in the requested format such as OpenAPI YAML, OpenAPI JSON, or other supported formats.
+      tags:
+      - Export
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                format:
+                  type: string
+                  enum:
+                  - openapi-yaml
+                  - openapi-json
+                  - postman
+                  - html
+                  description: The export format.
+                specificationId:
+                  type: string
+                  description: Optional specification to export. If omitted, exports the entire project.
+              required:
+              - format
+      responses:
+        '200':
+          description: The exported content.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  format:
+                    type: string
+                  content:
+                    type: string
+                    description: The exported content as a string.
+                  downloadUrl:
+                    type: string
+                    format: uri
+                    description: A temporary URL to download the exported file.
+components:
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The unique identifier of the project.
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

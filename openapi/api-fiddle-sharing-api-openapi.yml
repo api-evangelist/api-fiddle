@@ -1,0 +1,142 @@
+openapi: 3.1.0
+info:
+  title: API-Fiddle API Fiddle Export Sharing API
+  description: The API Fiddle API provides programmatic access to the API Fiddle design platform, enabling management of projects, specifications, workspaces, sharing, and export capabilities. It allows developers to automate API design workflows, collaborate on OpenAPI specifications, and integrate API Fiddle into their development pipelines.
+  version: 1.0.0
+  contact:
+    name: API Fiddle
+    url: https://api-fiddle.com/
+servers:
+- url: https://api.api-fiddle.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Sharing
+  description: Share projects with other users.
+paths:
+  /projects/{projectId}/sharing:
+    get:
+      operationId: listSharing
+      summary: API-Fiddle List sharing settings
+      description: Retrieves the sharing configuration for a project.
+      tags:
+      - Sharing
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      responses:
+        '200':
+          description: The sharing settings for the project.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SharingEntry'
+    post:
+      operationId: shareProject
+      summary: API-Fiddle Share a project
+      description: Shares a project with another user or generates a public link.
+      tags:
+      - Sharing
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SharingInput'
+      responses:
+        '201':
+          description: The sharing entry created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharingEntry'
+  /projects/{projectId}/sharing/{sharingId}:
+    delete:
+      operationId: removeSharing
+      summary: API-Fiddle Remove sharing
+      description: Revokes sharing access for a specific entry.
+      tags:
+      - Sharing
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - name: sharingId
+        in: path
+        required: true
+        description: The unique identifier of the sharing entry.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Sharing entry removed successfully.
+components:
+  schemas:
+    SharingInput:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - user
+          - link
+        email:
+          type: string
+          format: email
+          description: Email of the user to share with. Required when type is user.
+        role:
+          type: string
+          enum:
+          - viewer
+          - editor
+          - admin
+      required:
+      - type
+      - role
+    SharingEntry:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the sharing entry.
+        projectId:
+          type: string
+          description: Identifier of the shared project.
+        type:
+          type: string
+          enum:
+          - user
+          - link
+          description: Type of sharing.
+        email:
+          type: string
+          format: email
+          description: Email of the user the project is shared with.
+        role:
+          type: string
+          enum:
+          - viewer
+          - editor
+          - admin
+          description: Role granted to the recipient.
+        createdAt:
+          type: string
+          format: date-time
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The unique identifier of the project.
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
