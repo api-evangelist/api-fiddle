@@ -1,0 +1,22 @@
+{
+  "provider": "api-fiddle",
+  "sources": [
+    "api-fiddle-export-api-openapi.yml",
+    "api-fiddle-projects-api-openapi.yml",
+    "api-fiddle-sharing-api-openapi.yml",
+    "api-fiddle-specifications-api-openapi.yml",
+    "api-fiddle-workspaces-api-openapi.yml"
+  ],
+  "outputs": [
+    "api-fiddle-export-api-openapi.yml",
+    "api-fiddle-projects-api-openapi.yml",
+    "api-fiddle-sharing-api-openapi.yml",
+    "api-fiddle-specifications-api-openapi.yml",
+    "api-fiddle-workspaces-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
