@@ -1,0 +1,111 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API-Fiddle API Fiddle Export Workspaces API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Workspaces",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "API-Fiddle List workspaces",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.api-fiddle.com/v1/workspaces"
+          },
+          "docs": "Retrieves all workspaces accessible to the authenticated user."
+        },
+        {
+          "info": {
+            "name": "API-Fiddle Create a workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.api-fiddle.com/v1/workspaces",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new workspace for organizing projects."
+        },
+        {
+          "info": {
+            "name": "API-Fiddle Get a workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.api-fiddle.com/v1/workspaces/:workspaceId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the workspace."
+              }
+            ]
+          },
+          "docs": "Retrieves a single workspace by its identifier."
+        },
+        {
+          "info": {
+            "name": "API-Fiddle Update a workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.api-fiddle.com/v1/workspaces/:workspaceId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the workspace."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing workspace."
+        },
+        {
+          "info": {
+            "name": "API-Fiddle Delete a workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.api-fiddle.com/v1/workspaces/:workspaceId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the workspace."
+              }
+            ]
+          },
+          "docs": "Deletes a workspace."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

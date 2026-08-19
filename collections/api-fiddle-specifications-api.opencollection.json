@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API-Fiddle API Fiddle Export Specifications API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Specifications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "API-Fiddle List specifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.api-fiddle.com/v1/projects/:projectId/specifications",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the project."
+              }
+            ]
+          },
+          "docs": "Retrieves all specifications belonging to a project."
+        },
+        {
+          "info": {
+            "name": "API-Fiddle Create a specification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.api-fiddle.com/v1/projects/:projectId/specifications",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the project."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new API specification within a project."
+        },
+        {
+          "info": {
+            "name": "API-Fiddle Get a specification",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.api-fiddle.com/v1/projects/:projectId/specifications/:specificationId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the project."
+              },
+              {
+                "name": "specificationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the specification."
+              }
+            ]
+          },
+          "docs": "Retrieves a single specification by its identifier."
+        },
+        {
+          "info": {
+            "name": "API-Fiddle Update a specification",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.api-fiddle.com/v1/projects/:projectId/specifications/:specificationId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the project."
+              },
+              {
+                "name": "specificationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the specification."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing specification."
+        },
+        {
+          "info": {
+            "name": "API-Fiddle Delete a specification",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.api-fiddle.com/v1/projects/:projectId/specifications/:specificationId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the project."
+              },
+              {
+                "name": "specificationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the specification."
+              }
+            ]
+          },
+          "docs": "Deletes a specification from a project."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
