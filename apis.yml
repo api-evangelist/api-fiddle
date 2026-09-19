@@ -110,6 +110,8 @@ apis:
   description: Manage API specifications within projects.
   humanURL: https://api-fiddle.com/
   tags:
+  - Specification
+  tags_raw:
   - Specifications
   properties:
   - type: OpenAPI
@@ -129,6 +131,8 @@ apis:
   description: Organize projects into workspaces.
   humanURL: https://api-fiddle.com/
   tags:
+  - Workspace
+  tags_raw:
   - Workspaces
   properties:
   - type: OpenAPI
