@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API-Fiddle API Fiddle Export Workspaces API
+  title: API-Fiddle API Fiddle Workspaces API
   description: The API Fiddle API provides programmatic access to the API Fiddle design platform, enabling management of projects, specifications, workspaces, sharing, and export capabilities. It allows developers to automate API design workflows, collaborate on OpenAPI specifications, and integrate API Fiddle into their development pipelines.
   version: 1.0.0
   contact:
@@ -102,15 +102,18 @@ paths:
         '204':
           description: Workspace deleted successfully.
 components:
-  parameters:
-    workspaceId:
-      name: workspaceId
-      in: path
-      required: true
-      description: The unique identifier of the workspace.
-      schema:
-        type: string
   schemas:
+    WorkspaceInput:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the workspace.
+        description:
+          type: string
+          description: Description of the workspace.
+      required:
+      - name
     Workspace:
       type: object
       properties:
@@ -132,17 +135,14 @@ components:
         updatedAt:
           type: string
           format: date-time
-    WorkspaceInput:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the workspace.
-        description:
-          type: string
-          description: Description of the workspace.
-      required:
-      - name
+  parameters:
+    workspaceId:
+      name: workspaceId
+      in: path
+      required: true
+      description: The unique identifier of the workspace.
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

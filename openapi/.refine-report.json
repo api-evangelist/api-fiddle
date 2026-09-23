@@ -1,11 +1,7 @@
 {
   "provider": "api-fiddle",
   "sources": [
-    "api-fiddle-export-api-openapi.yml",
-    "api-fiddle-projects-api-openapi.yml",
-    "api-fiddle-sharing-api-openapi.yml",
-    "api-fiddle-specifications-api-openapi.yml",
-    "api-fiddle-workspaces-api-openapi.yml"
+    "_original/api-fiddle-api-fiddle-openapi.yml"
   ],
   "outputs": [
     "api-fiddle-export-api-openapi.yml",
@@ -17,6 +13,16 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "api-fiddle-api-fiddle-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "api-fiddle-export-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "api-fiddle-projects-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "api-fiddle-sharing-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "api-fiddle-specifications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "api-fiddle-workspaces-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API-Fiddle API Fiddle Export Specifications API
+  title: API-Fiddle API Fiddle Specifications API
   description: The API Fiddle API provides programmatic access to the API Fiddle design platform, enabling management of projects, specifications, workspaces, sharing, and export capabilities. It allows developers to automate API design workflows, collaborate on OpenAPI specifications, and integrate API Fiddle into their development pipelines.
   version: 1.0.0
   contact:
@@ -109,21 +109,6 @@ paths:
         '204':
           description: Specification deleted successfully.
 components:
-  parameters:
-    specificationId:
-      name: specificationId
-      in: path
-      required: true
-      description: The unique identifier of the specification.
-      schema:
-        type: string
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      description: The unique identifier of the project.
-      schema:
-        type: string
   schemas:
     Specification:
       type: object
@@ -180,6 +165,21 @@ components:
           description: The raw specification content.
       required:
       - name
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The unique identifier of the project.
+      schema:
+        type: string
+    specificationId:
+      name: specificationId
+      in: path
+      required: true
+      description: The unique identifier of the specification.
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http
