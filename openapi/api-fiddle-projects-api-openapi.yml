@@ -123,35 +123,7 @@ paths:
         '204':
           description: Project deleted successfully.
 components:
-  parameters:
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      description: The unique identifier of the project.
-      schema:
-        type: string
   schemas:
-    ProjectInput:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the project.
-        description:
-          type: string
-          description: Description of the project.
-        workspaceId:
-          type: string
-          description: Identifier of the workspace to place the project in.
-        visibility:
-          type: string
-          enum:
-          - private
-          - public
-          - shared
-      required:
-      - name
     Project:
       type: object
       properties:
@@ -182,6 +154,34 @@ components:
           type: string
           format: date-time
           description: Timestamp when the project was last updated.
+    ProjectInput:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the project.
+        description:
+          type: string
+          description: Description of the project.
+        workspaceId:
+          type: string
+          description: Identifier of the workspace to place the project in.
+        visibility:
+          type: string
+          enum:
+          - private
+          - public
+          - shared
+      required:
+      - name
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The unique identifier of the project.
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http
