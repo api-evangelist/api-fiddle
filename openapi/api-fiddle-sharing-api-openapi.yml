@@ -76,28 +76,15 @@ paths:
         '204':
           description: Sharing entry removed successfully.
 components:
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The unique identifier of the project.
+      schema:
+        type: string
   schemas:
-    SharingInput:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - user
-          - link
-        email:
-          type: string
-          format: email
-          description: Email of the user to share with. Required when type is user.
-        role:
-          type: string
-          enum:
-          - viewer
-          - editor
-          - admin
-      required:
-      - type
-      - role
     SharingEntry:
       type: object
       properties:
@@ -127,14 +114,27 @@ components:
         createdAt:
           type: string
           format: date-time
-  parameters:
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      description: The unique identifier of the project.
-      schema:
-        type: string
+    SharingInput:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - user
+          - link
+        email:
+          type: string
+          format: email
+          description: Email of the user to share with. Required when type is user.
+        role:
+          type: string
+          enum:
+          - viewer
+          - editor
+          - admin
+      required:
+      - type
+      - role
   securitySchemes:
     bearerAuth:
       type: http
