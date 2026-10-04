@@ -102,14 +102,6 @@ paths:
         '204':
           description: Workspace deleted successfully.
 components:
-  parameters:
-    workspaceId:
-      name: workspaceId
-      in: path
-      required: true
-      description: The unique identifier of the workspace.
-      schema:
-        type: string
   schemas:
     WorkspaceInput:
       type: object
@@ -143,6 +135,14 @@ components:
         updatedAt:
           type: string
           format: date-time
+  parameters:
+    workspaceId:
+      name: workspaceId
+      in: path
+      required: true
+      description: The unique identifier of the workspace.
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

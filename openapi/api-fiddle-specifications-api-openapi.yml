@@ -110,13 +110,6 @@ paths:
           description: Specification deleted successfully.
 components:
   parameters:
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      description: The unique identifier of the project.
-      schema:
-        type: string
     specificationId:
       name: specificationId
       in: path
@@ -124,7 +117,36 @@ components:
       description: The unique identifier of the specification.
       schema:
         type: string
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The unique identifier of the project.
+      schema:
+        type: string
   schemas:
+    SpecificationInput:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the specification.
+        description:
+          type: string
+          description: Description of the specification.
+        version:
+          type: string
+          description: Version label.
+        format:
+          type: string
+          enum:
+          - openapi-3.0
+          - openapi-3.1
+        content:
+          type: string
+          description: The raw specification content.
+      required:
+      - name
     Specification:
       type: object
       properties:
@@ -158,28 +180,6 @@ components:
         updatedAt:
           type: string
           format: date-time
-    SpecificationInput:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the specification.
-        description:
-          type: string
-          description: Description of the specification.
-        version:
-          type: string
-          description: Version label.
-        format:
-          type: string
-          enum:
-          - openapi-3.0
-          - openapi-3.1
-        content:
-          type: string
-          description: The raw specification content.
-      required:
-      - name
   securitySchemes:
     bearerAuth:
       type: http

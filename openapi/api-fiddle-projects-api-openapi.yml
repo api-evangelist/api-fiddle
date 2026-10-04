@@ -123,14 +123,6 @@ paths:
         '204':
           description: Project deleted successfully.
 components:
-  parameters:
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      description: The unique identifier of the project.
-      schema:
-        type: string
   schemas:
     Project:
       type: object
@@ -182,6 +174,14 @@ components:
           - shared
       required:
       - name
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The unique identifier of the project.
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http
