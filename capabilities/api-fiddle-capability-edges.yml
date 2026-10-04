@@ -1,0 +1,26 @@
+slug: api-fiddle
+provider: API-Fiddle
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Specifications
+  spec_file: api-fiddle-specifications-api-openapi.yml
+  capability_id: BC-4270.10
+  capability_id_l1: BC-4270
+  capability_name: Public API Lifecycle Management
+  confidence: 0.8
+  evidence: POST /projects/{projectId}/specifications createSpecification; "first-class support for OpenAPI
+    3.x ... API versioning"
+  reason: The operations create, read, update and delete OpenAPI specifications, which is the authoring
+    and versioning of API contracts — Public API Lifecycle Management. Some residual ambiguity versus
+    generic product specification management, hence 0.8.

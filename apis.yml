@@ -151,6 +151,9 @@ apis:
   - type: JSONLD
     url: json-ld/api-fiddle-context.jsonld
 common:
+  - type: CapabilityMap
+    url: capabilities/api-fiddle-capability-edges.yml
+    name: API-Fiddle Business Capability Map
   - type: AgenticAccess
     url: agentic-access/api-fiddle-agentic-access.yml
   - type: DomainSecurity
