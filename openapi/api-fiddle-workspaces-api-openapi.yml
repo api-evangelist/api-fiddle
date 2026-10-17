@@ -103,17 +103,6 @@ paths:
           description: Workspace deleted successfully.
 components:
   schemas:
-    WorkspaceInput:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the workspace.
-        description:
-          type: string
-          description: Description of the workspace.
-      required:
-      - name
     Workspace:
       type: object
       properties:
@@ -135,6 +124,17 @@ components:
         updatedAt:
           type: string
           format: date-time
+    WorkspaceInput:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the workspace.
+        description:
+          type: string
+          description: Description of the workspace.
+      required:
+      - name
   parameters:
     workspaceId:
       name: workspaceId
