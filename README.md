@@ -1,4 +1,4 @@
-# API-Fiddle (api-fiddle)
+# API-Fiddle
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,61 +66,142 @@
 
 API-Fiddle is an interactive, collaborative API design platform for creating professional APIs based on OpenAPI. It provides first-class support for OpenAPI 3.x, data transfer objects, API versioning, suggested response codes, parameter serialization, pagination patterns, and response structuring best practices. API-Fiddle enables seamless sharing of API definitions with teams without requiring user accounts, making it accessible for collaboration throughout the API design lifecycle.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/api-fiddle/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/api-fiddle/refs/heads/main/apis.yml)
+**Areas:** API Design · OpenAPI · Collaboration · Documentation · Platform · Developer Tools
 
-## Scope
+## API-Fiddle on APIs.io
 
-- **Type:** Index
+Everything profiled for API-Fiddle is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/api-fiddle/](https://apis.io/providers/api-fiddle/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (5)
 
-- API Design
-- OpenAPI
-- Collaboration
-- Documentation
-- Platform
+- [API-Fiddle Export API](https://apis.io/apis/api-fiddle/api-fiddle-export-api/) — Export projects and specifications.
+- [API-Fiddle Projects API](https://apis.io/apis/api-fiddle/api-fiddle-projects-api/) — Manage API design projects.
+- [API-Fiddle Sharing API](https://apis.io/apis/api-fiddle/api-fiddle-sharing-api/) — Share projects with other users.
+- [API-Fiddle Specifications API](https://apis.io/apis/api-fiddle/api-fiddle-specifications-api/) — Manage API specifications within projects.
+- [API-Fiddle Workspaces API](https://apis.io/apis/api-fiddle/api-fiddle-workspaces-api/) — Organize projects into workspaces.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-01-08
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### API-Fiddle
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The API Fiddle API provides programmatic access to the API Fiddle design platform, enabling management of projects, specifications, workspaces, sharing, and export capabilities. It allows developers to automate API design workflows, collaborate on OpenAPI specifications, and integrate API Fiddle into their development pipelines.
+- [Api Fiddle Agentic Access](https://apis.io/agentic-access/api-fiddle/api-fiddle-agentic-access/)
 
-- **Human URL:** [https://api-fiddle.com/](https://api-fiddle.com/)
+#### JSON Schema (3)
 
-#### Tags
+The data models the API reads and writes.
 
-- API Design
-- OpenAPI
-- Collaboration
+- [API Fiddle Project](https://apis.io/schemas/api-fiddle/api-fiddle-project/)
+- [API Fiddle Specification](https://apis.io/schemas/api-fiddle/api-fiddle-specification/)
+- [API Fiddle Workspace](https://apis.io/schemas/api-fiddle/api-fiddle-workspace/)
 
-#### Properties
+#### JSON-LD (1)
 
-- [Documentation](https://api-fiddle.com/)
-- [OpenAPI](openapi/api-fiddle-api-fiddle-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/api-fiddle-api-fiddle.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/api-fiddle-api-fiddle.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/api-fiddle-project-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/api-fiddle-specification-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/api-fiddle-workspace-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/api-fiddle-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+Linked-data contexts for the provider's vocabulary.
 
-## Common Properties
+- [Api Fiddle Context](https://apis.io/jsonld/api-fiddle/api-fiddle-context/)
+
+#### Collections (6)
+
+Postman and Open Collection request collections.
+
+- [API-Fiddle API Fiddle API](https://apis.io/collections/api-fiddle/open-api-fiddle-api-fiddle/)
+- [API-Fiddle API Fiddle Export API](https://apis.io/collections/api-fiddle/open-api-fiddle-export-api/)
+- [API-Fiddle API Fiddle Export Projects API](https://apis.io/collections/api-fiddle/open-api-fiddle-projects-api/)
+- [API-Fiddle API Fiddle Export Sharing API](https://apis.io/collections/api-fiddle/open-api-fiddle-sharing-api/)
+- [API-Fiddle API Fiddle Export Specifications API](https://apis.io/collections/api-fiddle/open-api-fiddle-specifications-api/)
+- [API-Fiddle API Fiddle Export Workspaces API](https://apis.io/collections/api-fiddle/open-api-fiddle-workspaces-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [API-Fiddle — jsonschema rules](https://apis.io/rules/api-fiddle/api-fiddle-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Api Fiddle Authentication](https://apis.io/security/api-fiddle/api-fiddle-authentication/)
+- [Api Fiddle Domain Security](https://apis.io/security/api-fiddle/api-fiddle-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Api Fiddle Plans Pricing](https://apis.io/plans/api-fiddle/api-fiddle-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Api Fiddle Rate Limits](https://apis.io/rate-limits/api-fiddle/api-fiddle-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Api Fiddle Finops](https://apis.io/finops/api-fiddle/api-fiddle-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://api-fiddle.com/)
 - [Blog](https://blog.api-fiddle.com/)
-- [GitHub Repository](https://github.com/apps/api-fiddle)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [L L Ms Txt](https://api-fiddle.com/llms.txt)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** info@apievangelist.com
+**Kin Score 29.3** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 63.9 |
+| Contract governance | 9.8 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 14.3 |
+| Access clarity | 7.9 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/api-fiddle/](https://apis.io/providers/api-fiddle/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for API-Fiddle: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/api-fiddle/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
